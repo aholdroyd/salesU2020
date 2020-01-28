@@ -21,7 +21,7 @@ services:
       - pingnet
 
   pingdatagov:
-    image: pingidentity/pingdatagovernance:edge
+    image: pingidentity/pingdatagovernance:latest
     command: wait-for pingdirectory:389 -t 300 -- entrypoint.sh start-server
     environment:
       # Adding the bits needed for Jokes API and PF Token Validation
@@ -40,7 +40,7 @@ services:
       - pingnet
 
   pingfederate:
-    image: pingidentity/pingfederate:edge
+    image: pingidentity/pingfederate:latest
     command: wait-for pingdirectory:389 -t 300 -- entrypoint.sh start-server
     environment:
       - SERVER_PROFILE_URL=https://github.com/cprice-ping/Profile-PF-Base.git
@@ -66,7 +66,7 @@ services:
       - pingnet
 
   pingdirectory:
-    image: pingidentity/pingdirectory:edge
+    image: pingidentity/pingdirectory:latest
     environment:
       - SERVER_PROFILE_URL=https://github.com/cprice-ping/Profile-PD-Base.git
       - SERVER_PROFILE_PATH=pingdir
@@ -84,7 +84,7 @@ services:
       - pingnet
 
   pingdataconsole:
-    image: pingidentity/pingdataconsole:edge
+    image: pingidentity/pingdataconsole:latest
     environment:
       - SERVER_PROFILE_URL=https://github.com/cprice-ping/Profile-DataGov.git
       - SERVER_PROFILE_PATH=pingdir
